@@ -252,6 +252,7 @@ exports.logout = (req, res, next) => {
 // show create account page
 exports.getFeedback = (req, res, next) => {
    res.render('user/feedback', { user: "", msg: [], err: [] })
+   
 }
 //post
 exports.postFeedback = (req, res, next) => {

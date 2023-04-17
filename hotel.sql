@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 17, 2023 at 03:20 PM
+-- Generation Time: Apr 17, 2023 at 04:59 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.0.19
 
@@ -87,10 +87,15 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`name`, `type`, `cost`, `available`, `img`, `dec`) VALUES
 ('Business Class ', 'Double Bed', 1200, 11, '/assets/img/rooms/room1.jpg', 'Non AC Room'),
-('Business Class', 'Single Bed', 232, 4, '/assets/img/rooms/Business ClassSingle Bed232.jpeg', '2323'),
+('Business Class', 'Double Bed', 4343, 12, '/assets/img/rooms/Business ClassDouble Bed4343.png', 'Full AC double bed'),
 ('Business Class ', 'Single Bed', 800, 10, '/assets/img/rooms/room3.jpg', 'Non AC Room'),
 ('Business Class ', 'Single Bed', 1200, 10, '/assets/img/rooms/room4.jpg', 'AC Room'),
-('First class', 'Double Bed', 1357, 24, '/assets/img/rooms/First classDouble Bed1357.png', 'This is a good room');
+('Business Class', 'Single Bed', 1500, 21, '/assets/img/rooms/Business ClassSingle Bed1500.jpg', 'Luxury Suite'),
+('First class', 'Double Bed', 1357, 24, '/assets/img/rooms/First classDouble Bed1357.png', 'This is a good room'),
+('First class', 'Single Bed', 3000, 30, '/assets/img/rooms/First classSingle Bed3000.png', ''),
+('Seceond class', 'Double Bed', 1500, 20, '/assets/img/rooms/Seceond classDouble Bed1500.jpeg', 'Best in class'),
+('Seceond class', 'Double Bed', 2000, 10, '/assets/img/rooms/Seceond classDouble Bed2000.jpeg', ''),
+('Seceond class', 'Single Bed', 1000, 30, '/assets/img/rooms/Seceond classSingle Bed1000.jpeg', '');
 
 -- --------------------------------------------------------
 
@@ -133,11 +138,9 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`name`, `email`, `phone`, `password`) VALUES
-('admin', 'admin@admin.com', '1', '1'),
 ('Sabit', 'iamsabit99@gmail.com', '01744248058', '1'),
 ('Jaison E Mathew', 'jaisonemathew14@gmail.com', '9526519828', 'password'),
-('Roscoe Jones', 'rosica@gmail.com', '9526519828', 'password'),
-('Sabit', 'st.sabit13@gmail.com', '01744248058', '1');
+('Roscoe Jones', 'rosica@gmail.com', '9526519828', 'password');
 
 --
 -- Indexes for dumped tables

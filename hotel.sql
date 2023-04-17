@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 25, 2020 at 03:37 PM
--- Server version: 10.4.6-MariaDB
--- PHP Version: 7.3.9
+-- Generation Time: Apr 17, 2023 at 03:20 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -30,15 +29,17 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `admin` (
   `name` varchar(20) NOT NULL,
-  `pass` varchar(200) NOT NULL
+  `pass` varchar(200) NOT NULL,
+  `id` int(222) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`name`, `pass`) VALUES
-('admin', 'admin');
+INSERT INTO `admin` (`name`, `pass`, `id`) VALUES
+('admin', 'admin', 1),
+('Jaison', 'password', 2);
 
 -- --------------------------------------------------------
 
@@ -60,7 +61,10 @@ CREATE TABLE `bookingstatus` (
 --
 
 INSERT INTO `bookingstatus` (`email`, `category`, `type`, `roomWant`, `status`, `date`) VALUES
-('iamsabit99@gmail.com', 'Business Class ', 'Single Bed', 21, 0, '2020-05-03');
+('jaisonemathew14@gmail.com', 'Business Class ', 'Double Bed', 1, 0, '2023-04-08'),
+('jaisonemathew14@gmail.com', 'Business Class ', 'Single Bed', 1, 1, '2023-01-17'),
+('jaisonemathew14@gmail.com', 'Business Class ', 'Single Bed', 1, 1, '2023-03-28'),
+('jaisonemathew14@gmail.com', 'Business Class', 'Single Bed', 2, 1, '2023-02-03');
 
 -- --------------------------------------------------------
 
@@ -83,10 +87,33 @@ CREATE TABLE `category` (
 
 INSERT INTO `category` (`name`, `type`, `cost`, `available`, `img`, `dec`) VALUES
 ('Business Class ', 'Double Bed', 1200, 11, '/assets/img/rooms/room1.jpg', 'Non AC Room'),
-('Business Class ', 'Double Bed', 2005, 9, '/assets/img/rooms/room2.jpg', 'AC Room'),
+('Business Class', 'Single Bed', 232, 4, '/assets/img/rooms/Business ClassSingle Bed232.jpeg', '2323'),
 ('Business Class ', 'Single Bed', 800, 10, '/assets/img/rooms/room3.jpg', 'Non AC Room'),
 ('Business Class ', 'Single Bed', 1200, 10, '/assets/img/rooms/room4.jpg', 'AC Room'),
 ('First class', 'Double Bed', 1357, 24, '/assets/img/rooms/First classDouble Bed1357.png', 'This is a good room');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `feedback`
+--
+
+CREATE TABLE `feedback` (
+  `name` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `no` bigint(250) NOT NULL,
+  `message` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `feedback`
+--
+
+INSERT INTO `feedback` (`name`, `email`, `no`, `message`) VALUES
+('Varghese Babu', 'vbabu@gmail.com', 9374649435, 'Nice Hotel'),
+('Jaison Thomas', 'jaison@gmail.com', 9658385953, 'Good Experience'),
+('Jaison E Mathew', 'jaisonemathew14@gmail.com', 9526519828, 'Good Service'),
+('Febin Binoy', 'febin@gmail.com', 894739573, 'Best Hotel');
 
 -- --------------------------------------------------------
 
@@ -108,11 +135,19 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`name`, `email`, `phone`, `password`) VALUES
 ('admin', 'admin@admin.com', '1', '1'),
 ('Sabit', 'iamsabit99@gmail.com', '01744248058', '1'),
+('Jaison E Mathew', 'jaisonemathew14@gmail.com', '9526519828', 'password'),
+('Roscoe Jones', 'rosica@gmail.com', '9526519828', 'password'),
 ('Sabit', 'st.sabit13@gmail.com', '01744248058', '1');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `bookingstatus`
@@ -131,6 +166,16 @@ ALTER TABLE `category`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`email`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `id` int(222) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

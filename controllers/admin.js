@@ -339,3 +339,62 @@ exports.getFeedback = (req, res, next) => {
     }
 
 }
+
+//User Management view
+exports.getCustomer = (req, res, next) => {
+    if (req.session.admin == undefined) {
+        res.render('admin/login', { msg: "", err: "" });
+    }
+    else {
+        var connectDB = mysql.createConnection({
+            host: "localhost",
+            user: "root",
+            password: "",
+            database: "hotel"
+        });
+        data1 = "SELECT * " +
+            "FROM  user";
+        connectDB.query(data1, (err1, result1) => {
+            if (err1) throw err1;
+            else {
+                return res.render('admin/customer', { msg: "", err: "", data: result1 });
+            }
+        })
+    }
+
+}
+
+//Customer Delete
+exports.postCustomerview = (req, res, next) => {
+    //console.log(req.body);
+
+    var connectDB = mysql.createConnection({
+        host: "localhost",
+        user: "root",
+        password: "",
+        database: "hotel"
+    });
+
+    if (req.body.click == "Delete") {
+        data = "DELETE FROM user " +
+        " WHERE name = " + mysql.escape(req.body.name) +
+        " AND email = " + mysql.escape(req.body.email) +
+        " AND phone = " + mysql.escape(req.body.phone)
+    }
+    
+    data1 = "SELECT * " +
+        "FROM  user ";
+
+    connectDB.query(data, (err, result) => {
+        if (err) throw err;
+        else {
+            connectDB.query(data1, (err1, result1) => {
+                if (err1) throw err1;
+                else {
+                    return res.render('admin/customer', { msg: "", err: "", data: result1 });
+                }
+            })
+        }
+    })
+
+}

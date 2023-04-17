@@ -32,4 +32,10 @@ router.route('/updateData')
 router.route('/feedback')
       .get(adminControler.getFeedback) //get request
 
+router.route('/customer')
+      .get(adminControler.getCustomer)//Customer get request 
+
+// post request for customer view
+router.post('/Customerview',adminControler.postCustomerview) 
+
 module.exports = router;

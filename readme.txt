@@ -1,11 +1,13 @@
 #How to run
-run node app.js
+Cd to directory and perform npm install
+import the database file to the MySql Server
+then run node app.js
 
 localhost:3000
-user:
-jaisonemathew14@gmail.com
-password
+user login:
+username:jaisonemathew14@gmail.com
+password:password
 
-admin:
-admin
-admin
+admin login:
+username:admin
+password:admin
